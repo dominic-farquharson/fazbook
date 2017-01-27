@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user.firstName %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Create a new user</h1>
+    <!-- Creating input fields -->
+    <form action="/users/<%= user.id %>?_method=PUT" method="POST">
+      <label>
+        Email
+        <input name="email" type="email" placeholder=<%= user.email %>" />
+      </label>
+      <label>
+        First Name
+        <input name="firstName" type="text" value="<%=user.firstName %>"/>
+      </label>
+      <label>
+        Last Name
+        <input name="lastName" type="text"  value="<%=user.lastName %>" />
+      </label>
+      <label>
+        Date of Birth
+        <input name="dob" type="date" value="<%= user.date %>" />
+      </label>
+      <input type="submit" value="Submit changes" />
+    </form>
+  </body>
+</html>

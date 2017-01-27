@@ -49,5 +49,23 @@ router.delete('/:id', function(req, res, next) {
 
   });
 });
+// edit user route
+router.get('/:id/edit', function(req, res, next) {
+  models.User.findById(req.params.id).then(function(user) {
+    res.render('users/edit', { user: user });
+  });
+});
+// editing user data
+router.put('/:id', function(req, res, next) {
+  models.User.update({
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    dob: req.body.dob
+  }, { where: { id: req.params.id } }).then(function() {
+    res.redirect('/users/' + req.params.id);
+  });
+});
+
 
 module.exports = router;

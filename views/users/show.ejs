@@ -12,8 +12,13 @@
         <span>Last Name: <%= user.lastName %></span>
         <span>Email: <%= user.email %></span>
         <span>Dob: <%= user.dob %></span>
+        <div>
+          <a href="/users/<%= user.id %>/edit">Edit User</a>  
+        </div>
         <!-- anchor to return home. -->
-        <div><a href="\">Return Home</a></div>
+        <div>
+          <a href="\">Return Home</a>
+        </div>
       </div>
 
   </body>
