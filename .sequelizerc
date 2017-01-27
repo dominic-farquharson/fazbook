@@ -1,0 +1,13 @@
+/*
+Importing path package.
+PRovides utilities for working with file/directory paths
+*/
+var path = require('path');
+
+/* Creates a server directory */
+module.exports = {
+  'config': path.resolve('./server', 'config.json'),
+  'migrations-path': path.resolve('./server', 'migrations'),
+  'models-path': path.resolve('./server', 'models'),
+  'seeders-path': path.resolve('./server', 'seeders')
+}

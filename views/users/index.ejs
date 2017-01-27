@@ -6,5 +6,18 @@
   </head>
   <body>
     <h1>Welcome to fazbook</h1>
+    <!-- anchor element linking to create a new user page -->
+    <a href="/users/new">Create a user</a>
+    <% users.forEach(function(user){ %>
+      <div>
+        <span><%= user.firstName %></span>
+        <span><%= user.lastName %></span>
+        <span><%= user.email %></span>
+        <span><%= user.dob %></span>
+        <form action="<% '/users/' +users.id +'?_method=DELETE' %>" method="POST">
+        <input type="submit" value="X" />
+        </form>
+      </div>
+      <% }) %>
   </body>
 </html>
