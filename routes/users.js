@@ -15,9 +15,16 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
+// get new user page
 router.get('/new', function(req,res,next){
   res.render('users/new', {title:'new user'})
+});
+
+// view particular user - show
+router.get('/:id', function(req, res, next) {
+  models.User.findById(req.params.id).then(function(user) {
+    res.render('users/show', { user: user, title:'show'});
+  });
 });
 
 // route to handle post request to users
