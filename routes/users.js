@@ -32,4 +32,15 @@ router.post('/', function(req, res, next) {
   });
 });
 
+// deleting a post route
+router.delete('/:id', function(req, res, next) {
+  models.User.destroy({
+    where: { id: req.params.id }
+  }).then(function(user) {
+    res.redirect('/users');
+    console.log('params',req.params.id);
+
+  });
+});
+
 module.exports = router;

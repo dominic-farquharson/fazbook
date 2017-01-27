@@ -2,11 +2,13 @@
 Importing packages
 */
 var express = require('express');
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 /*
 Setting paths to a variable
 
@@ -16,7 +18,8 @@ var users = require('./routes/users');
 
 // invoking express function
 var app = express();
-
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // setting view engine language to ejs
@@ -34,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 // setting /users file path to users
 app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
